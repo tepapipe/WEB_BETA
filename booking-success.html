@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Success - BestBuddies Pet Grooming</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">🐾 BestBuddies</div>
+      <ul class="nav-links">
+        <li><a href="customer-dashboard.html">Dashboard</a></li>
+        <li><a href="#" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container-sm">
+      <div class="success-message fade-in">
+        <div class="success-icon">✓</div>
+        <h2>Booking Request Submitted!</h2>
+        <p style="color: var(--gray-600); margin-bottom: 2rem;">
+          Your appointment request has been received. We'll confirm it shortly.
+        </p>
+
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+          <div class="card-header">
+            <h3 class="card-title">Booking Details</h3>
+          </div>
+          <div class="card-body" id="bookingDetails">
+            <!-- Booking details will be loaded here -->
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+          <a href="customer-dashboard.html" class="btn btn-primary">Back to Dashboard</a>
+          <a href="booking.html" class="btn btn-outline">Book Another Appointment</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 BestBuddies Pet Grooming. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Load booking details from sessionStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      const bookingStr = sessionStorage.getItem('lastBooking');
+      if (!bookingStr) {
+        // Redirect if no booking found
+        window.location.href = 'customer-dashboard.html';
+        return;
+      }
+
+      const booking = JSON.parse(bookingStr);
+      const container = document.getElementById('bookingDetails');
+
+      container.innerHTML = `
+        <div class="summary-item">
+          <span class="summary-label">Pet Name:</span>
+          <span class="summary-value">${escapeHtml(booking.petName)}</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Pet Type:</span>
+          <span class="summary-value">${escapeHtml(booking.petType.charAt(0).toUpperCase() + booking.petType.slice(1))}</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Package:</span>
+          <span class="summary-value">${escapeHtml(booking.packageName)}</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Date:</span>
+          <span class="summary-value">${formatDate(booking.date)}</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Time:</span>
+          <span class="summary-value">${formatTime(booking.time)}</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Customer:</span>
+          <span class="summary-value">${escapeHtml(booking.customerName)}</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Phone:</span>
+          <span class="summary-value">${escapeHtml(booking.phone)}</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Status:</span>
+          <span class="summary-value">
+            <span class="badge badge-pending">${escapeHtml(booking.status)}</span>
+          </span>
+        </div>
+      `;
+    });
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - BestBuddies Pet Grooming</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">🐾 BestBuddies</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container-sm">
+      <div class="card" style="max-width: 500px; margin: 3rem auto;">
+        <div class="card-header">
+          <h2 class="card-title text-center">Create Your Account</h2>
+        </div>
+        <div class="card-body">
+          <form id="signupForm">
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                class="form-input" 
+                placeholder="Enter your full name"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                class="form-input" 
+                placeholder="Enter your email"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="form-label">Password</label>
+              <input 
+                type="password" 
+                id="password" 
+                class="form-input" 
+                placeholder="Enter your password (min. 6 characters)"
+                required
+                minlength="6"
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Account Type</label>
+              <div class="form-radio-group">
+                <div class="form-radio">
+                  <input type="radio" id="role-customer" name="role" value="customer" checked>
+                  <label for="role-customer">Customer</label>
+                </div>
+                <div class="form-radio">
+                  <input type="radio" id="role-admin" name="role" value="admin">
+                  <label for="role-admin">Admin</label>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+              Sign Up
+            </button>
+          </form>
+
+          <div style="text-align: center; margin-top: 1.5rem;">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+            <p style="margin-top: 0.5rem;">
+              <a href="index.html">← Back to Home</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 BestBuddies Pet Grooming. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
+

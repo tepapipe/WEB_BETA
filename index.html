@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BestBuddies Pet Grooming - Premium Grooming for Pets</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">🐾 BestBuddies</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="#" onclick="handleBookNow()" class="btn btn-primary">Book Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero fade-in">
+        <h1>Premium Grooming for Pets</h1>
+        <p>Give your furry friends the care they deserve with our professional grooming services</p>
+        <div class="hero-buttons">
+          <a href="#" onclick="handleBookNow()" class="btn btn-primary btn-lg">Book Now</a>
+          <a href="login.html" class="btn btn-outline btn-lg">Login</a>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section class="section">
+        <h2 class="section-title">Our Grooming Packages</h2>
+        <div class="grid grid-3">
+          <!-- Dog Packages -->
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title">🐕 Dog Grooming</h3>
+              <p><strong>Basic Grooming</strong> - $45 (60 min)</p>
+              <p><strong>Full Grooming</strong> - $75 (90 min)</p>
+              <p><strong>Bath & Brush</strong> - $35 (45 min)</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title">🐈 Cat Grooming</h3>
+              <p><strong>Basic Grooming</strong> - $50 (60 min)</p>
+              <p><strong>Full Grooming</strong> - $80 (90 min)</p>
+              <p><strong>Bath Only</strong> - $40 (45 min)</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title">✨ Premium Services</h3>
+              <p>Professional grooming experts</p>
+              <p>Safe and gentle care</p>
+              <p>Flexible scheduling</p>
+              <p>Quality products used</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="section">
+        <h2 class="section-title">What Pet Parents Say</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="card-body">
+              <p style="font-style: italic; margin-bottom: 1rem;">
+                "BestBuddies gave my dog the best grooming experience! Professional, caring, and affordable."
+              </p>
+              <p><strong>- Sarah M.</strong></p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <p style="font-style: italic; margin-bottom: 1rem;">
+                "My cat usually hates grooming, but the team here made it stress-free. Highly recommend!"
+              </p>
+              <p><strong>- Michael T.</strong></p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <p style="font-style: italic; margin-bottom: 1rem;">
+                "Excellent service! My pet always comes back looking and feeling great. Worth every penny!"
+              </p>
+              <p><strong>- Emily R.</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 BestBuddies Pet Grooming. All rights reserved.</p>
+      <p>Premium grooming services for your beloved pets</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function handleBookNow() {
+      event.preventDefault();
+      const user = getCurrentUser();
+      if (user) {
+        window.location.href = 'booking.html';
+      } else {
+        window.location.href = 'signup.html';
+      }
+    }
+  </script>
+</body>
+</html>
+
